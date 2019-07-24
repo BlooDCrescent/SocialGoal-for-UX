@@ -27,6 +27,6 @@
 
 </div>
 @if (Model.Count() > 10)
-{ 
-    @Html.ActionLink("See All", "GroupList", "Group", new { filterBy = "My Followed Groups" }, new { @style = "float:right;" })
+{
+    @Html.ActionLink("See All", "GroupList", "WebGroup", new { filterBy = "My Followed Groups" }, new { @style = "float:right;" })
 }

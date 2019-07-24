@@ -166,7 +166,7 @@ namespace SocialGoal.Tests.Controllers
 
             userRepository.Setup(x => x.Get(It.IsAny<Expression<Func<ApplicationUser, bool>>>())).Returns(applicationUser);
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
 
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
@@ -277,7 +277,7 @@ namespace SocialGoal.Tests.Controllers
 
             Mapper.CreateMap<GroupGoal, GroupGoalViewModel>();
             //Act
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             ViewResult result = controller.GroupGoal(1) as ViewResult;
 
             //Assert
@@ -292,7 +292,7 @@ namespace SocialGoal.Tests.Controllers
         {
             //Arrange
             GroupFormModel group = new GroupFormModel();
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             //Act
             PartialViewResult result = controller.CreateGroup() as PartialViewResult;
             //Assert
@@ -322,7 +322,7 @@ namespace SocialGoal.Tests.Controllers
                 userContext.ToString());
 
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
 
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
@@ -398,7 +398,7 @@ namespace SocialGoal.Tests.Controllers
 
 
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
 
@@ -466,7 +466,7 @@ namespace SocialGoal.Tests.Controllers
 
 
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
             controllerContext.SetupGet(p => p.HttpContext.Request.IsAuthenticated).Returns(true);
@@ -511,7 +511,7 @@ namespace SocialGoal.Tests.Controllers
         public void Focus_Name_Mandatory()
         {
             // Arrange                    
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             // The MVC pipeline doesn't run, so binding and validation don't run. 
             controller.ModelState.AddModelError("", "mock error message");
             // Act          
@@ -530,7 +530,7 @@ namespace SocialGoal.Tests.Controllers
         public void Focus_Description_Mandatory()
         {
             // Arrange                    
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             // The MVC pipeline doesn't run, so binding and validation don't run. 
             controller.ModelState.AddModelError("", "mock error message");
 
@@ -564,7 +564,7 @@ namespace SocialGoal.Tests.Controllers
                 DateTime.Now.Add(FormsAuthentication.Timeout),
                 false,
                 userContext.ToString());
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
             controllerContext.SetupGet(p => p.HttpContext.Request.IsAuthenticated).Returns(true);
@@ -667,7 +667,7 @@ namespace SocialGoal.Tests.Controllers
           }.AsEnumerable();
             userRepository.Setup(x => x.GetAll()).Returns(fakeUser);
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             principal.SetupGet(x => x.Identity.Name).Returns("abc");
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
             controllerContext.SetupGet(p => p.HttpContext.Request.IsAuthenticated).Returns(true);
@@ -698,7 +698,7 @@ namespace SocialGoal.Tests.Controllers
 
             Group group = new Group() { GroupId = 1, GroupName = "Test", Description = "test" };
             groupRepository.Setup(x => x.GetById(1)).Returns(group);
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             //Act
             ActionResult result = controller.CreateFocus(1) as ActionResult;
             //Assert
@@ -727,7 +727,7 @@ namespace SocialGoal.Tests.Controllers
 
             metricRepository.Setup(x => x.GetAll()).Returns(fakeMatrices);
             GroupGoalFormModel goal = new GroupGoalFormModel();
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
             ViewResult result = controller.CreateGoal(1) as ViewResult;
 
@@ -757,7 +757,7 @@ namespace SocialGoal.Tests.Controllers
                 DateTime.Now.Add(FormsAuthentication.Timeout),
                 false,
                 userContext.ToString());
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
             controllerContext.SetupGet(p => p.HttpContext.Request.IsAuthenticated).Returns(true);
@@ -820,7 +820,7 @@ namespace SocialGoal.Tests.Controllers
             Group group = new Group() { GroupId = 1, GroupName = "Test", Description = "test" };
             groupRepository.Setup(x => x.GetById(1)).Returns(group);
             Mapper.CreateMap<Group, GroupFormModel>();
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
 
             ViewResult actual = controller.EditGroup(1) as ViewResult;
@@ -839,7 +839,7 @@ namespace SocialGoal.Tests.Controllers
             Focus focus = new Focus() { FocusId = 1, FocusName = "Test", Description = "test" };
             focusRepository.Setup(x => x.GetById(1)).Returns(focus);
             Mapper.CreateMap<Focus, FocusFormModel>();
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             ViewResult actual = controller.EditFocus(1) as ViewResult;
             Assert.IsNotNull(actual, "View Result is null");
             Assert.IsInstanceOf(typeof(FocusFormModel),
@@ -856,7 +856,7 @@ namespace SocialGoal.Tests.Controllers
                 Description = "test"
             };
             focusRepository.Setup(x => x.GetById(1)).Returns(fake);
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
             ViewResult result = controller.DeleteFocus(1) as ViewResult;
 
@@ -878,7 +878,7 @@ namespace SocialGoal.Tests.Controllers
                 Description = "test"
             };
             groupRepository.Setup(x => x.GetById(1)).Returns(fake);
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             ViewResult result = controller.DeleteGroup(1) as ViewResult;
             Assert.IsNotNull(result, "View Result is null");
             Assert.IsInstanceOf(typeof(Group),
@@ -908,7 +908,7 @@ namespace SocialGoal.Tests.Controllers
 
             groupGoalRepository.Setup(x => x.GetById(1)).Returns(fake);
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             ViewResult result = controller.DeleteGoal(1) as ViewResult;
             Assert.IsNotNull(result, "View Result is null");
             Assert.IsInstanceOf(typeof(GroupGoal),
@@ -932,7 +932,7 @@ namespace SocialGoal.Tests.Controllers
             Assert.IsNotNull(fake);
             Assert.AreEqual("test", fake.FocusName);
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             var result = controller.DeleteConfirmedFocus(1) as RedirectToRouteResult;
             Assert.AreEqual("Index", result.RouteValues["action"]);
 
@@ -952,7 +952,7 @@ namespace SocialGoal.Tests.Controllers
 
             Assert.IsNotNull(fake);
             Assert.AreEqual(1, fake.GroupId);
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             var result = controller.DeleteConfirmedGroup(1) as RedirectToRouteResult;
             Assert.AreEqual("Index", result.RouteValues["action"]);
 
@@ -967,7 +967,7 @@ namespace SocialGoal.Tests.Controllers
             new Group { GroupName = "Test3", Description="Test3Desc"}
           }.AsEnumerable();
             groupRepository.Setup(x => x.GetAll()).Returns(fakeCategories);
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
             // Act
             ViewResult result = controller.ListOfGroups() as ViewResult;
@@ -1003,7 +1003,7 @@ namespace SocialGoal.Tests.Controllers
             groupUserRepository.Setup(x => x.GetAll()).Returns(fakeGroupUser);
 
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
             // Act
             ViewResult result = controller.JoinedUsers(1) as ViewResult;
@@ -1019,7 +1019,7 @@ namespace SocialGoal.Tests.Controllers
         [Test]
         public void Edit_Group_Post()
         {
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
             // Act
             Mapper.CreateMap<GroupFormModel, Group>();
@@ -1040,7 +1040,7 @@ namespace SocialGoal.Tests.Controllers
         [Test]
         public void Edit_Focus_Post()
         {
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
             // Act
             Mapper.CreateMap<FocusFormModel, Focus>();
@@ -1106,7 +1106,7 @@ namespace SocialGoal.Tests.Controllers
 
             metricRepository.Setup(x => x.GetAll()).Returns(fakeMatrices);
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             Mapper.CreateMap<GroupGoal, GroupGoalFormModel>();
             ViewResult result = controller.EditGoal(1) as ViewResult;
             Assert.IsNotNull(result, "View Result is null");
@@ -1118,7 +1118,7 @@ namespace SocialGoal.Tests.Controllers
         public void Edit_Goal_Post()
         {
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
             Mapper.CreateMap<GroupGoalFormModel, GroupGoal>();
 
@@ -1165,7 +1165,7 @@ namespace SocialGoal.Tests.Controllers
             groupUserRepository.Setup(x => x.GetAll()).Returns(fakeGroupUser);
 
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
             // Act
             ViewResult result = controller.Members(1) as ViewResult;
@@ -1186,7 +1186,7 @@ namespace SocialGoal.Tests.Controllers
             };
             groupUserRepository.Setup(x => x.Get(It.IsAny<Expression<Func<GroupUser, bool>>>())).Returns(user);
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             var result = controller.DeleteMember("402bd590-fdc7-49ad-9728-40efbfe512ec", 1) as RedirectToRouteResult;
             Assert.AreEqual("Index", result.RouteValues["action"]);
         }
@@ -1207,7 +1207,7 @@ namespace SocialGoal.Tests.Controllers
                 GroupUser = user
             };
             groupGoalRepository.Setup(x => x.GetById(1)).Returns(goal);
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             var result = controller.DeleteConfirmed(1) as RedirectToRouteResult;
             Assert.AreEqual("Index", result.RouteValues["action"]);
 
@@ -1216,7 +1216,7 @@ namespace SocialGoal.Tests.Controllers
         [Test]
         public void Save_Update_Update_Mandatory_Test()
         {
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
             // The MVC pipeline doesn't run, so binding and validation don't run. 
             controller.ModelState.AddModelError("", "mock error message");
@@ -1249,7 +1249,7 @@ namespace SocialGoal.Tests.Controllers
 
             userRepository.Setup(x => x.Get(It.IsAny<Expression<Func<ApplicationUser, bool>>>())).Returns(applicationUser);
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");            //identity.Setup(x=>x.)
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
             controllerContext.SetupGet(p => p.HttpContext.Request.IsAuthenticated).Returns(true);
@@ -1348,7 +1348,7 @@ namespace SocialGoal.Tests.Controllers
 
             userRepository.Setup(x => x.Get(It.IsAny<Expression<Func<ApplicationUser, bool>>>())).Returns(applicationUser);
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");            //identity.Setup(x=>x.)
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
             controllerContext.SetupGet(p => p.HttpContext.Request.IsAuthenticated).Returns(true);
@@ -1441,7 +1441,7 @@ namespace SocialGoal.Tests.Controllers
             ApplicationUser applicationUser = getApplicationUser();
             userRepository.Setup(x => x.Get(It.IsAny<Expression<Func<ApplicationUser, bool>>>())).Returns(applicationUser);
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
             Mapper.CreateMap<GroupComment, GroupCommentsViewModel>();
             PartialViewResult rslt = controller.DisplayComments(1) as PartialViewResult;
@@ -1474,7 +1474,7 @@ namespace SocialGoal.Tests.Controllers
 
 
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
@@ -1524,7 +1524,7 @@ namespace SocialGoal.Tests.Controllers
           }.AsEnumerable();
 
             groupCommentRepository.Setup(x => x.GetMany(It.IsAny<Expression<Func<GroupComment, bool>>>())).Returns(cmnt);
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             JsonResult count = controller.DisplayCommentCount(1) as JsonResult;
             Assert.IsNotNull(count);
             Assert.AreEqual(3, count.Data);
@@ -1546,7 +1546,7 @@ namespace SocialGoal.Tests.Controllers
             {
                 GroupId = 1
             };
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             var searchString = "e";
             JsonResult result = controller.SearchUserForGroup(searchString, 1);
             Assert.IsNotNull(result);
@@ -1575,7 +1575,7 @@ namespace SocialGoal.Tests.Controllers
                 false,
                 userContext.ToString());
             userRepository.Setup(x => x.Get(It.IsAny<Expression<Func<ApplicationUser, bool>>>())).Returns(applicationUser);
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
             controllerContext.SetupGet(p => p.HttpContext.Request.IsAuthenticated).Returns(true);
@@ -1622,7 +1622,7 @@ namespace SocialGoal.Tests.Controllers
             };
             groupRepository.Setup(x => x.GetById(1)).Returns(grp);
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             ViewResult reslt = controller.InviteUsers(1) as ViewResult;
             Assert.IsNotNull(reslt);
             Assert.IsInstanceOf(typeof(GroupViewModel),
@@ -1645,7 +1645,7 @@ namespace SocialGoal.Tests.Controllers
            
           }.AsEnumerable();
             groupUserRepository.Setup(x => x.GetMany(It.IsAny<Expression<Func<GroupUser, bool>>>())).Returns(fakeGroupUser);
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
             ViewResult result = controller.UsersList(2) as ViewResult;
             Assert.IsNotNull(result);
@@ -1679,7 +1679,7 @@ namespace SocialGoal.Tests.Controllers
 
 
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             //principal.SetupGet(x=>x.Get(((SocialGoalUser)(User.Identity)).UserId).Callback(1));
 
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
@@ -1737,7 +1737,7 @@ namespace SocialGoal.Tests.Controllers
 
 
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             //principal.SetupGet(x=>x.Get(((SocialGoalUser)(User.Identity)).UserId).Callback(1));
 
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
@@ -1789,7 +1789,7 @@ namespace SocialGoal.Tests.Controllers
 
             };
             groupGoalRepository.Setup(x => x.GetById(1)).Returns(goal);
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             string result = controller.GoalStatus(1, 1) as string;
             Assert.AreEqual("InProgress", result);
         }
@@ -1803,7 +1803,7 @@ namespace SocialGoal.Tests.Controllers
                 GroupGoalId = 1
             };
             groupGoalRepository.Setup(x => x.GetById(1)).Returns(goal);
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             JsonResult reslt = controller.GetGoalReport(1) as JsonResult;
             Assert.IsNotNull(reslt);
 
@@ -1818,7 +1818,7 @@ namespace SocialGoal.Tests.Controllers
           
           }.AsEnumerable();
             groupRepository.Setup(x => x.GetAll()).Returns(fake);
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             PartialViewResult result = controller.Groupslist(0) as PartialViewResult;
             Assert.IsNotNull(result);
             Assert.IsInstanceOf(typeof(IEnumerable<Group>), result.ViewData.Model, "Wrong View Model");
@@ -1841,7 +1841,7 @@ namespace SocialGoal.Tests.Controllers
                 UserId = "402bd590-fdc7-49ad-9728-40efbfe512ec"
             };
             groupRequestRepository.Setup(x => x.Get(It.IsAny<Expression<Func<GroupRequest, bool>>>())).Returns(request);
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             var result = controller.AcceptRequest(1, "402bd590-fdc7-49ad-9728-40efbfe512ec") as RedirectToRouteResult;
             Assert.AreEqual("ShowAllRequests", result.RouteValues["action"]);
         }
@@ -1855,7 +1855,7 @@ namespace SocialGoal.Tests.Controllers
                 GroupId = 1
             };
             groupRequestRepository.Setup(x => x.Get(It.IsAny<Expression<Func<GroupRequest, bool>>>())).Returns(request);
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             var result = controller.RejectRequest(1, "402bd590-fdc7-49ad-9728-40efbfe512ec") as RedirectToRouteResult;
             Assert.AreEqual("ShowAllRequests", result.RouteValues["action"]);
         }
@@ -1871,7 +1871,7 @@ namespace SocialGoal.Tests.Controllers
           }.AsEnumerable();
             groupRequestRepository.Setup(x => x.GetMany(It.IsAny<Expression<Func<GroupRequest, bool>>>())).Returns(request);
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
             Mapper.CreateMap<GroupRequest, GroupRequestViewModel>();
             ViewResult result = controller.ShowAllRequests(1) as ViewResult;
@@ -1906,7 +1906,7 @@ namespace SocialGoal.Tests.Controllers
 
             //userRepository.Setup(x => x.GetById(1)).Returns(user);
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");            //identity.Setup(x=>x.)
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
             controllerContext.SetupGet(p => p.HttpContext.Request.IsAuthenticated).Returns(true);
@@ -1971,7 +1971,7 @@ namespace SocialGoal.Tests.Controllers
             };
             groupUdateRepository.Setup(x => x.GetById(1)).Returns(update);
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             Mapper.CreateMap<GroupUpdate, GroupUpdateFormModel>();
             PartialViewResult result = controller.EditUpdate(1) as PartialViewResult;
             Assert.IsNotNull(result, "View Result is null");
@@ -2005,7 +2005,7 @@ namespace SocialGoal.Tests.Controllers
 
             userRepository.Setup(x => x.Get(It.IsAny<Expression<Func<ApplicationUser, bool>>>())).Returns(applicationUser);
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
 
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
@@ -2090,7 +2090,7 @@ namespace SocialGoal.Tests.Controllers
             };
             groupUdateRepository.Setup(x => x.GetById(1)).Returns(update);
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             PartialViewResult result = controller.DeleteUpdate(1) as PartialViewResult;
             Assert.IsNotNull(result, "View Result is null");
             Assert.IsInstanceOf(typeof(GroupUpdate),
@@ -2112,7 +2112,7 @@ namespace SocialGoal.Tests.Controllers
 
             };
             groupUdateRepository.Setup(x => x.GetById(1)).Returns(update);
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             var result = controller.DeleteConfirmedUpdate(1) as RedirectToRouteResult;
             Assert.AreEqual("GroupGoal", result.RouteValues["action"]);
 
@@ -2133,7 +2133,7 @@ namespace SocialGoal.Tests.Controllers
           }.AsEnumerable();
 
             groupUpdateSupportRepository.Setup(x => x.GetMany(It.IsAny<Expression<Func<GroupUpdateSupport, bool>>>())).Returns(updtsprt);
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             int count = controller.NoOfSupports(1);
             Assert.IsNotNull(count);
             Assert.AreEqual("3", count.ToString());
@@ -2154,7 +2154,7 @@ namespace SocialGoal.Tests.Controllers
           }.AsEnumerable();
 
             groupUpdateSupportRepository.Setup(x => x.GetMany(It.IsAny<Expression<Func<GroupUpdateSupport, bool>>>())).Returns(updtsprt);
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             JsonResult count = controller.DisplayUpdateSupportCount(1) as JsonResult;
             Assert.IsNotNull(count);
             Assert.AreEqual(3, count.Data);
@@ -2187,7 +2187,7 @@ namespace SocialGoal.Tests.Controllers
             };
             groupUserRepository.Setup(x => x.Get(It.IsAny<Expression<Func<GroupUser, bool>>>())).Returns(grpuser);
 
-            GroupController controller = new GroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
+            WebGroupController controller = new WebGroupController(groupService, groupUserService, userService, metricService, focusService, groupgoalService, groupInvitationService, securityTokenService, groupUpdateService, groupCommentService, goalStatusService, groupRequestService, followUserService, groupCommentUserService, groupUpdateSupportService, groupUpdateUserService);
             PartialViewResult result = controller.SupportersOfUpdate(1) as PartialViewResult;
             Assert.IsNotNull(result);
             Assert.IsInstanceOf(typeof(GroupUpdateSupportersViewModel), result.ViewData.Model, "Wrong View Model");

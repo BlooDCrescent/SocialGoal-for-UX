@@ -19,7 +19,7 @@ using Microsoft.AspNet.Identity;
 namespace SocialGoal.Web.Controllers
 {
     [Authorize]
-    public class GroupController : Controller
+    public class WebGroupController : Controller
     {
         private readonly IGroupService groupService;
         private readonly IGroupUserService groupUserService;
@@ -45,7 +45,7 @@ namespace SocialGoal.Web.Controllers
             set { userMailer = value; }
         }
 
-        public GroupController(IGroupService groupService, IGroupUserService groupUserService, IUserService userService, IMetricService metricService, IFocusService focusService, IGroupGoalService groupgoalService, IGroupInvitationService groupInvitationService, ISecurityTokenService securityTokenService, IGroupUpdateService groupUpdateService, IGroupCommentService groupCommentService, IGoalStatusService goalStatusService, IGroupRequestService groupRequestService, IFollowUserService followUserService, IGroupCommentUserService groupCommentUserService, IGroupUpdateSupportService groupUpdateSupportService, IGroupUpdateUserService groupUpdateUserService)
+        public WebGroupController(IGroupService groupService, IGroupUserService groupUserService, IUserService userService, IMetricService metricService, IFocusService focusService, IGroupGoalService groupgoalService, IGroupInvitationService groupInvitationService, ISecurityTokenService securityTokenService, IGroupUpdateService groupUpdateService, IGroupCommentService groupCommentService, IGoalStatusService goalStatusService, IGroupRequestService groupRequestService, IFollowUserService followUserService, IGroupCommentUserService groupCommentUserService, IGroupUpdateSupportService groupUpdateSupportService, IGroupUpdateUserService groupUpdateUserService)
         {
             this.groupService = groupService;
             this.groupInvitationService = groupInvitationService;
@@ -271,7 +271,7 @@ namespace SocialGoal.Web.Controllers
                 return HttpNotFound();
             }
             focusService.DeleteFocus(id);
-            return RedirectToAction("Index", "Group", new { id = Focus.GroupId });
+            return RedirectToAction("Index", "WebGroup", new { id = Focus.GroupId });
         }
 
         [HttpPost]

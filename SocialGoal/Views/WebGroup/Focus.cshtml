@@ -11,7 +11,7 @@
     </div>
 
     <div style="float:right;">
-    @Html.ActionLink("Back To Group", "Index", "Group", new { id = Model.GroupId }, new { @class ="btn btn-info", style ="float:right"})
+	    @Html.ActionLink("Back To Group", "Index", "WebGroup", new { id = Model.GroupId }, new { @class ="btn btn-info", style ="float:right"})
     </div>
 </div>
 
@@ -28,15 +28,16 @@
         @foreach (var item in Model.GroupGoal)
         { 
             <div>
-                <div style="position: relative">@Html.ActionLink(item.GoalName, "GroupGoal", "Group", new { id = item.GroupGoalId }, null)
+                <div style="position: relative">
+	                @Html.ActionLink(item.GoalName, "GroupGoal", "WebGroup", new { id = item.GroupGoalId }, null)
                 </div>
                 <div>@item.StartDate.ToString("dd MMM yyyy")- @item.EndDate.ToString("dd MMM yyyy")</div>
                 <div>Created By @Html.ActionLink(item.User.UserName, "UserProfile", "Account", new { id = item.User.Id }, null)</div>
                 @if (Model.IsAMember == true)
                 { 
                     <div align="right" id="div@(item.GroupGoalId)">
-                        <a data-toggle="modal" href="#" id ="edit" onclick ="window.location.href='@Url.Action("EditGoal", "Group", new { id = item.GroupGoalId })'"@*editGet('@item.GoalId')*@>
-                            <span rel="tooltip" title="Edit goals"><i class="icon-edit"></i></span></a><a href="#" id="delete" onclick ="window.location.href='@Url.Action("DeleteGoal", "Group", new { id = item.GroupGoalId })'"@*"DeleteGet('@item.GoalId')"*@>
+                        <a data-toggle="modal" href="#" id ="edit" onclick ="window.location.href='@Url.Action("EditGoal", "WebGroup", new { id = item.GroupGoalId })'"@*editGet('@item.GoalId')*@>
+                            <span rel="tooltip" title="Edit goals"><i class="icon-edit"></i></span></a><a href="#" id="delete" onclick ="window.location.href='@Url.Action("DeleteGoal", "WebGroup", new { id = item.GroupGoalId })'"@*"DeleteGet('@item.GoalId')"*@>
                                 <span rel="tooltip" title="Delete goals"><i class="icon-trash"></i></span>
                         </a>
                     </div>

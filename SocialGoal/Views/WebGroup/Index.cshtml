@@ -14,9 +14,9 @@
                 @Model.GroupName
                 @if (Model.Admin)
                 {
-                    <a href="#" id ="groupEdit" onclick ="window.location.href='@Url.Action("EditGroup", "Group", new { id = Model.GroupId })'" style="padding-right:2px;">
+                    <a href="#" id ="groupEdit" onclick ="window.location.href='@Url.Action("EditGroup", "WebGroup", new { id = Model.GroupId })'" style="padding-right:2px;">
                         <span rel="tooltip" title="Edit Group"><i class="icon-edit"></i></span></a>
-                    <a href="#" id ="groupDelete" onclick ="window.location.href='@Url.Action("DeleteGroup", "Group", new { id = Model.GroupId })'">
+                    <a href="#" id ="groupDelete" onclick ="window.location.href='@Url.Action("DeleteGroup", "WebGroup", new { id = Model.GroupId })'">
                         <span rel="tooltip" title="Delete Group"><i class="icon-trash"></i></span></a>
                 }
             </h4>
@@ -28,16 +28,16 @@
             @if (Model.IsAMember == false)
             {
                 if (Model.RequestSent == false && Model.InvitationSent == false)
-                { 
-                    @Html.ActionLink("Join Now", "GroupJoinRequest", "Group", new { id = Model.GroupId }, new { @class = "btn btn-primary btn-small", @style = "float:right" })
+                {
+                    @Html.ActionLink("Join Now", "GroupJoinRequest", "WebGroup", new { id = Model.GroupId }, new { @class = "btn btn-primary btn-small", @style = "float:right" })
                 }
                 else if (Model.RequestSent == false && Model.InvitationSent == true)
                 {
-                    @Html.ActionLink("Accept Invitation", "JoinGroup", "Group", new { id = Model.GroupId }, new { @class = "btn btn-primary btn-small", @style = "float:right" })
+                    @Html.ActionLink("Accept Invitation", "JoinGroup", "WebGroup", new { id = Model.GroupId }, new { @class = "btn btn-primary btn-small", @style = "float:right" })
                 }
                 else if (Model.RequestSent == true && Model.InvitationSent == true)
                 {
-                    @Html.ActionLink("Accept Invitation", "JoinGroup", "Group", new { id = Model.GroupId }, new { @class = "btn btn-primary btn-small", @style = "float:right" })
+                    @Html.ActionLink("Accept Invitation", "JoinGroup", "WebGroup", new { id = Model.GroupId }, new { @class = "btn btn-primary btn-small", @style = "float:right" })
                 }
                 else if (Model.RequestSent == true && Model.InvitationSent == false)
                 {
@@ -82,7 +82,7 @@
         { 
                 <div>
                     @if (Model.IsAMember == true)
-                    {<strong>@Html.ActionLink(item.GoalName, "GroupGoal", "Group", new { id = item.GroupGoalId }, null)</strong> }
+                    {<strong>@Html.ActionLink(item.GoalName, "GroupGoal", "WebGroup", new { id = item.GroupGoalId }, null)</strong> }
                     else
                     {@item.GoalName}
                 </div>
@@ -91,8 +91,8 @@
                     if (item.UserId == User.Identity.GetUserId())
                     { 
                     <div id="div@(item.GroupGoalId)" style="float:right;margin-right:10px;">
-                        <a data-toggle="modal" href="#" id ="edit" onclick ="window.location.href='@Url.Action("EditGoal", "Group", new { id = item.GroupGoalId })'"@*editGet('@item.GoalId')*@>
-                            <span rel="tooltip" title="Edit goals"><i class="icon-edit"></i></span></a><a href="#" id="delete" onclick ="window.location.href='@Url.Action("DeleteGoal", "Group", new { id = item.GroupGoalId })'"@*"DeleteGet('@item.GoalId')"*@>
+                        <a data-toggle="modal" href="#" id ="edit" onclick ="window.location.href='@Url.Action("EditGoal", "WebGroup", new { id = item.GroupGoalId })'"@*editGet('@item.GoalId')*@>
+                            <span rel="tooltip" title="Edit goals"><i class="icon-edit"></i></span></a><a href="#" id="delete" onclick ="window.location.href='@Url.Action("DeleteGoal", "WebGroup", new { id = item.GroupGoalId })'"@*"DeleteGet('@item.GoalId')"*@>
                                 <span rel="tooltip" title="Delete goals"><i class="icon-trash"></i></span>
                         </a>
                     </div>
@@ -116,13 +116,13 @@
         <div style="max-height:270px;overflow-y:auto;" id="focuslistcontainer">
         @foreach (var item in Model.Focus)
         {            
-           <strong>@Html.ActionLink(item.FocusName, "Focus", "Group", new { id = item.FocusId }, null)</strong>
+           <strong>@Html.ActionLink(item.FocusName, "Focus", "WebGroup", new { id = item.FocusId }, null)</strong>
             if (Model.IsAMember == true)
             { 
                 <div id="div@(item.FocusId)" style="float:right;margin-right:10px;">
-                    <a data-toggle="modal" href="#" id ="edit" onclick ="window.location.href='@Url.Action("EditFocus", "Group", new { id = item.FocusId })'"@*editGet('@item.GoalId')*@>
+                    <a data-toggle="modal" href="#" id ="edit" onclick ="window.location.href='@Url.Action("EditFocus", "WebGroup", new { id = item.FocusId })'"@*editGet('@item.GoalId')*@>
                         <span rel="tooltip" title="Edit goals"><i class="icon-edit"></i></span></a>
-                     <a href="#" id="delete" onclick ="window.location.href='@Url.Action("DeleteFocus", "Group", new { id = item.FocusId })'"@*"DeleteGet('@item.GoalId')"*@>
+                     <a href="#" id="delete" onclick ="window.location.href='@Url.Action("DeleteFocus", "WebGroup", new { id = item.FocusId })'"@*"DeleteGet('@item.GoalId')"*@>
                             <span rel="tooltip" title="Delete goals"><i class="icon-trash"></i></span></a>
                 </div>
             }
@@ -150,11 +150,11 @@
              <div >
                 @if ((item.Id == User.Identity.GetUserId()) && (Model.Admin == false))
                 {
-                   <small> @Html.ActionLink("Unfollow", "DeleteMember", "Group", new { id = item.Id }, new { style = "float:right" })</small>					   
+                   <small> @Html.ActionLink("Unfollow", "DeleteMember", "WebGroup", new { id = item.Id }, new { style = "float:right" })</small>					   
                 }
                 @if (Model.Admin == true && item.Id != User.Identity.GetUserId())
                 {
-                    <a href="@Url.Action("DeleteMember", "Group", new { userId = item.Id, groupId = Model.GroupId })" id="delete" style ="float:right" >
+                    <a href="@Url.Action("DeleteMember", "WebGroup", new { userId = item.Id, groupId = Model.GroupId })" id="delete" style ="float:right" >
                         <span rel="tooltip" title="Delete this member"><i class="icon-trash"></i></span></a>
                 }
             </div>
@@ -185,7 +185,7 @@
         {
             foreach (var item in Model.GoalsAssignedToOthers)
             {
-                @Html.ActionLink(item.GoalName, "GroupGoal", "Group", new { id = item.GroupGoalId }, null)
+                @Html.ActionLink(item.GoalName, "GroupGoal", "WebGroup", new { id = item.GroupGoalId }, null)
                 <div><small>Assigned on @item.CreatedDate.ToString("dd MMM yyyy -   hh:mm tt ")</small></div>    
             <hr/>
             }
@@ -201,7 +201,7 @@
         {
             foreach (var item in Model.GoalsAssignedToMe)
             {
-                @Html.ActionLink(item.GoalName, "GroupGoal", "Group", new { id = item.GroupGoalId }, null)<hr />
+                @Html.ActionLink(item.GoalName, "GroupGoal", "WebGroup", new { id = item.GroupGoalId }, null)<hr />
             }
         }
     </div>

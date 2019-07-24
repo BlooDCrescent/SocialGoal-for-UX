@@ -5,8 +5,8 @@
     <div class="alert alert-info">
         @if (item.GroupId.ToString() != "0")
         {             
-            @Html.ActionLink(item.FromUser.UserName, "UserProfile", "Account", new { id = item.FromUserId }, null)<text> Invited you to join</text> @Html.ActionLink(@item.Group.GroupName, "Index", "Group", new { id = @item.GroupId }, null)
-            @Html.ActionLink("Join Now", "JoinGroup", "Group", new { id = item.GroupId }, new { @class = "btn btn-primary btn-small", @style = "float:right" })
+            @Html.ActionLink(item.FromUser.UserName, "UserProfile", "Account", new { id = item.FromUserId }, null)<text> Invited you to join</text> @Html.ActionLink(@item.Group.GroupName, "Index", "WebGroup", new { id = @item.GroupId }, null)
+            @Html.ActionLink("Join Now", "JoinGroup", "WebGroup", new { id = item.GroupId }, new { @class = "btn btn-primary btn-small", @style = "float:right" })
         }
         else if (item.GoalId.ToString() != "0")
         {

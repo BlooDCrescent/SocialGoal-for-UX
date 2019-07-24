@@ -13,10 +13,10 @@
                         <i class="icon-th"></i>
                     </td>
                     <td class="span8">
-                    
-                            @Html.ActionLink(item.GroupName/*.LimitLength(20)*/, "Index", "Group", new { id = item.GroupId },  new { @title = item.GroupName })
-                            @{
-            var not = Html.Action("GetNumberOfRequests", "Group", new { id = item.GroupId });
+
+                        @Html.ActionLink(item.GroupName/*.LimitLength(20)*/, "Index", "WebGroup", new { id = item.GroupId },  new { @title = item.GroupName })
+                        @{
+            var not = Html.Action("GetNumberOfRequests", "WebGroup", new { id = item.GroupId });
             if (not.ToString() != "0")
             {
                                 <sub><span class="badge badge-important">@not</span></sub>
@@ -25,8 +25,8 @@
                        
                     </td>
                     <td class="span3">
-                        <a href="#" id ="groupEdit" onclick ="window.location.href='@Url.Action("EditGroup", "Group", new { id = item.GroupId })'">
-                            <span rel="tooltip" title="Edit Group"><i class="icon-edit"></i></span></a><a href="#" id ="groupDelete" onclick ="window.location.href='@Url.Action("DeleteGroup", "Group", new { id = item.GroupId })'">
+                        <a href="#" id ="groupEdit" onclick ="window.location.href='@Url.Action("EditGroup", "WebGroup", new { id = item.GroupId })'">
+                            <span rel="tooltip" title="Edit Group"><i class="icon-edit"></i></span></a><a href="#" id ="groupDelete" onclick ="window.location.href='@Url.Action("DeleteGroup", "WebGroup", new { id = item.GroupId })'">
                                 <span rel="tooltip" title="Delete Group"><i class="icon-trash"></i></span>
                     </td>
                 </tr>
@@ -37,5 +37,5 @@
 </div>
 @if (Model.Count() > 10)
 {
-    @Html.ActionLink("See All", "GroupList", "Group", new { filterBy = "My Groups" }, new { @style = "float:right;" })
+    @Html.ActionLink("See All", "GroupList", "WebGroup", new { filterBy = "My Groups" }, new { @style = "float:right;" })
 }

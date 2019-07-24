@@ -21,7 +21,7 @@
 
 <script type="text/javascript">
     function LoadGroups() {
-        var url = "@Url.Action("GroupList","Group")" + "?filter=" + $('#Filter').val();
+        var url = "@Url.Action("GroupList","WebGroup")" + "?filter=" + $('#Filter').val();
         $.get(url).done(function(html) {
              $("#GroupPagingContainer").html(html);
         });

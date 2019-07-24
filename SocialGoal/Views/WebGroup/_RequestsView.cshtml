@@ -20,10 +20,10 @@ else
     { 
     <div class="span alert alert-info">
         @Html.ActionLink(item.User.UserName, "UserProfile", "Account", new { id = item.UserId }, null)<text> wants to join</text>
-        @Html.ActionLink(@item.Group.GroupName, "Index", "Group", new { id = @item.GroupId }, null)
+        @Html.ActionLink(@item.Group.GroupName, "Index", "WebGroup", new { id = @item.GroupId }, null)
         <span style = "float:right">
-        @Html.ActionLink("Accept", "AcceptRequest", "Group", new { groupId = item.GroupId,item.UserId }, new { @class = "btn btn-primary btn-small" })
-        @Html.ActionLink("Reject", "RejectRequest", "Group", new { groupId = item.GroupId, item.UserId }, new {@class="btn btn-primary btn-small" })
+            @Html.ActionLink("Accept", "AcceptRequest", "WebGroup", new { groupId = item.GroupId,item.UserId }, new { @class = "btn btn-primary btn-small" })
+            @Html.ActionLink("Reject", "RejectRequest", "WebGroup", new { groupId = item.GroupId, item.UserId }, new {@class="btn btn-primary btn-small" })
         </span>
     </div>
     }

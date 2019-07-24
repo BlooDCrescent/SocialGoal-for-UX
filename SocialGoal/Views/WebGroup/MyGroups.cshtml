@@ -13,7 +13,7 @@
 { 
     <div class="alert users span2">
         <h4>
-           @Html.ActionLink(item.GroupName, "Index", "Group", new { id = item.GroupId },null)</h4>
+            @Html.ActionLink(item.GroupName, "Index", "WebGroup", new { id = item.GroupId },null)</h4>
         @Html.ActionLink(@Html.Action("NoOfUsers", new { id = @item.GroupId }) + " Members", "JoinedUsers", new { id = @item.GroupId }, null)
     </div>
 }

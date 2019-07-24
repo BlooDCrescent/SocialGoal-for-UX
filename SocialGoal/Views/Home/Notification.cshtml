@@ -105,8 +105,8 @@ foreach (var item in Model.Notification)
             <td class="span10">
                 <div>
                     @Html.ActionLink(item.UserName, "UserProfile", "Account", new { id = item.UserId }, null)
-                    Created Goal @Html.ActionLink(item.GroupGoalName/*.LimitLength(15)*/, "GroupGoal", "Group", new { id = item.GroupGoalId }, null)
-                    for the Group @Html.ActionLink(item.GroupName/*.LimitLength(15)*/, "Index", "Group", new { id = item.GroupId }, null)
+                    Created Goal @Html.ActionLink(item.GroupGoalName/*.LimitLength(15)*/, "GroupGoal", "WebGroup", new { id = item.GroupGoalId }, null)
+                    for the Group @Html.ActionLink(item.GroupName/*.LimitLength(15)*/, "Index", "WebGroup", new { id = item.GroupId }, null)
                 </div>
                 <small style="float: left; color: darkGray; margin-top: 5px;">@item.NotificationDate
                 </small>
@@ -128,7 +128,7 @@ foreach (var item in Model.Notification)
             <td class="span10">
                 <div>
                     @Html.ActionLink(item.UserName, "UserProfile", "Account", new { id = item.UserId }, null)
-                    Joined Group @Html.ActionLink(item.GroupName/*.LimitLength(15)*/, "Index", "Group", new { id = item.GroupId }, null)
+                    Joined Group @Html.ActionLink(item.GroupName/*.LimitLength(15)*/, "Index", "WebGroup", new { id = item.GroupId }, null)
                 </div>
                 <small style="float: left; color: darkGray; margin-top: 5px;">@item.NotificationDate
                 </small>
@@ -170,9 +170,9 @@ foreach (var item in Model.Notification)
             <td class="span10">
                 <div>
                     @Html.ActionLink(item.UserName, "UserProfile", "Account", new { id = item.UserId }, null)
-                    Updated @Html.ActionLink(item.GroupUpdatemsg/*.LimitLength(15)*/, "GroupGoal", "Group", new { id = item.GroupGoalId }, null)
-                    on the Goal @Html.ActionLink(item.GroupGoalName/*.LimitLength(15)*/, "GroupGoal", "Group", new { id = item.GroupGoalId }, null)
-                    for the Group @Html.ActionLink(item.GroupName/*.LimitLength(15)*/, "Index", "Group", new { id = item.GroupId }, null)
+                    Updated @Html.ActionLink(item.GroupUpdatemsg/*.LimitLength(15)*/, "GroupGoal", "WebGroup", new { id = item.GroupGoalId }, null)
+                    on the Goal @Html.ActionLink(item.GroupGoalName/*.LimitLength(15)*/, "GroupGoal", "WebGroup", new { id = item.GroupGoalId }, null)
+                    for the Group @Html.ActionLink(item.GroupName/*.LimitLength(15)*/, "Index", "WebGroup", new { id = item.GroupId }, null)
                 </div>
                 <small style="float: left; color: darkGray; margin-top: 5px;">@item.NotificationDate
                 </small>
@@ -198,9 +198,9 @@ foreach (var item in Model.Notification)
                 <div>
                     @Html.ActionLink(item.UserName, "UserProfile", "Account", new { id = item.UserId }, null)
                     @*Commented "@item.GroupCommentText.LimitLength(15)" on Update @Html.ActionLink(item.GroupUpdatemsg.LimitLength(15), "GroupGoal", "Group", new { id = item.GroupGoalId }, null)*@
-                    Commented "@item.GroupCommentText" on Update @Html.ActionLink(item.GroupUpdatemsg, "GroupGoal", "Group", new { id = item.GroupGoalId }, null)
-                    of the Goal @Html.ActionLink(item.GroupGoalName/*.LimitLength(15)*/, "GroupGoal", "Group", new { id = item.GroupGoalId }, null)
-                    for the Group @Html.ActionLink(item.GroupName/*.LimitLength(15)*/, "Index", "Group", new { id = item.GroupId }, null)
+                    Commented "@item.GroupCommentText" on Update @Html.ActionLink(item.GroupUpdatemsg, "GroupGoal", "WebGroup", new { id = item.GroupGoalId }, null)
+                    of the Goal @Html.ActionLink(item.GroupGoalName/*.LimitLength(15)*/, "GroupGoal", "WebGroup", new { id = item.GroupGoalId }, null)
+                    for the Group @Html.ActionLink(item.GroupName/*.LimitLength(15)*/, "Index", "WebGroup", new { id = item.GroupId }, null)
                 </div>
                 <small style="float: left; color: darkGray; margin-top: 5px;">@item.NotificationDate
                 </small>

@@ -17,9 +17,9 @@
         <h4>@Model.GoalName
             @if (User.Identity.GetUserId() == Model.UserId)
             { 
-                <a href="#" id ="editBtn" onclick ="location.href='@Url.Action("EditGoal", "Group", new { id = Model.GroupGoalId })'" style="padding-right:5px;">
+                <a href="#" id ="editBtn" onclick ="location.href='@Url.Action("EditGoal", "WebGroup", new { id = Model.GroupGoalId })'" style="padding-right:5px;">
                     <span rel="tooltip" title="Edit Goal"><i class="icon-edit"></i></span></a>
-                <a href="#" id="delete" onclick="window.location.href='@Url.Action("DeleteGoal", "Group", new { id = Model.GroupGoalId })'">
+                <a href="#" id="delete" onclick="window.location.href='@Url.Action("DeleteGoal", "WebGroup", new { id = Model.GroupGoalId })'">
                     <span rel="tooltip" title="Delete goal"><i class="icon-trash"></i></span></a>
             }
         </h4>
@@ -129,7 +129,7 @@
         </table>
     }
     <div id="divgroupupdate" style="margin: 0px;">
-        @{ Html.RenderAction("DisplayUpdates", "Group", Model.GroupGoalId); }
+        @{ Html.RenderAction("DisplayUpdates", "WebGroup", Model.GroupGoalId); }
     </div>
     <div id="divInviteLayer" class="jqmWindow">
         <div id="handle" style="float: right">
