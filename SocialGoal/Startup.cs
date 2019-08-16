@@ -1,5 +1,6 @@
 ﻿using Microsoft.Owin;
 using Owin;
+using SocialGoal.Web.Helpers;
 
 [assembly: OwinStartupAttribute(typeof(SocialGoal.Startup))]
 namespace SocialGoal
@@ -8,7 +9,9 @@ namespace SocialGoal
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(ap);
+            var iterator = new Iterator();
+            iterator.Execute(10);
+            ConfigureAuth(app);
         }
     }
 }
